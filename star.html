@@ -22,7 +22,20 @@
   </div>
   <div class="test"></div>
   <script>
-    //TODO
+    ////Séléctionner  tous des elements 'list-of-star' dans un tableau
+    const stars = document.querySelectorAll('#list-of-stars li');  
+    console.log (stars);
+    // parcour du element de tableau stars
+    stars.forEach ((star, index) =>{
+      // écouter l'évènement click sur chaque elenment star
+      star.addEventListener('click', (even)=>{
+        // parcour n de 0 à index de tableau de stars
+        for(n=0; n<=index; n++) {
+          // changer toutes les étoiles précédentes au jaunes
+          stars[index-n].style.color = 'yellow';
+          };
+        });   
+    });
   </script>
 </body>
 </html>

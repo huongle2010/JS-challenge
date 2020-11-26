@@ -12,7 +12,15 @@
       <input type="text">
     </form>
     <script>
-      //TODO
+      //Séléctionner inpput de form dans HTML
+      const form = document .querySelector('form input');
+      console.log (form);
+      // écouter l'évènement mouseover sur form 
+      form .addEventListener('mouseover', (even) =>{
+        // Elagir le formulaire au passage de la souris
+        form.style.height = '40px';
+        form.style.width = '40%';
+      });
     </script>
   </body>
 </html>

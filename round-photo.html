@@ -13,7 +13,19 @@
     </div>
       <div id="photo1"><img src="./assets/images/round-photo/photo1.jpg" width="20%"></div>
     <script>
-        //TODO
+        //Séléctionner le image de l'éléments HTML 'photo1' avec querySelector et la mettre dans une variable.
+        const photo = document.querySelector('#photo1 img');
+        console.log('photo');
+        // écouter sur l'évènement click sur photo 
+        photo.addEventListener('click',(even) => {
+          // ajouter le class 'round-photo' sur la photo pour arrondir la photo
+          photo.classList.add("round-photo");
+        });
+        // écouter sur l'évènement mouseover sur la photo 
+        photo.addEventListener('mouseover',(even) => {
+          // ajouter la class 'shadow' sur la photo pour créer une ombre au passage de la souris
+          photo.classList.add("shadow");
+        });
     </script>
   </body>
 </html>

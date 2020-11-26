@@ -14,8 +14,44 @@
         <br>(voir bannière.html)
       </p>
     </div>
+    <div class="banner">
+      <p>Inscription à la newsletter</p>
+      <button> x </button>
+    </div>
     <script>
-      //TODO
+      // on récupère le class banner
+      const banner = document.querySelector('.banner');
+      console.log(banner);
+      // on récupère le button
+      const button = document.querySelector('button');
+      console.log(button);
+      // ne pas afficher le class banner
+      banner.style.display = 'none';
+      // créer une fonction afficher une bannière avec les styles specifics 
+      function ready() {
+        banner.style.display = 'block';
+        banner.style.background = 'orange';
+        banner.style.width = '500px';
+        banner.style.height = '100px';
+        banner.style.position= 'fixed';
+        banner.style.left = '200px';
+        banner.style.top = '500px';
+        button.style.position= 'absolute'
+        button.style.left= '470px';
+        button.style.top= '10px';
+       
+      };
+      // écouteur sur l'évènement DOMContentLoaded sur le document HTML pour lancer le fonction 'ready' - afficher une bannière
+      document.addEventListener("DOMContentLoaded", (even) =>{
+        // Faites apparaitre une bannière 5 secondes après le chargement de la page.
+        setTimeout (ready, 5000);
+      });
+      // écouteur sur l'évènement Click sur le button pour fermer la bannière
+      button.addEventListener("click", (even) =>{
+        banner.style.display = 'none';
+        button.style.display = 'none';
+      });
+
     </script>
   </body>
 </html>

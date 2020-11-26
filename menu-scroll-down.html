@@ -18,7 +18,20 @@
     </h1>
   </div>
     <script>
-      //TODO
+      // Séléctionner l'éléments HTML 'menu' avec querySelector et le mettre dans une variable.
+      const menu = document.querySelector('#menu');
+      console.log(menu);
+      // créer une fonction qui se fixe en haut de la page lorsqu'on scroll-down au dela de 70 px
+      function myfuntion(){
+        // si on scroll-down le page au dela de 70px
+        if (document.body.scrollTop > 70 || document.documentElement.scrollTop > 70){
+          // le menu se fixe
+          menu.classList.add('fixed-position');
+        }
+      }
+      // Placer un 'micro' avec un addEventListener (click) sur document de HTML qui lancer la fonction
+      document.addEventListener('scroll', myfuntion);
+
     </script>
   </body>
 </html>

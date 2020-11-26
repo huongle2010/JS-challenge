@@ -49,7 +49,7 @@ input #button:hover{
   border: 2px solid red;
 }
 
-.error-message{
+#error-message{
   text-align: center; 
   color: red;
 }

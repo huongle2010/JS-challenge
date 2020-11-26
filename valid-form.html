@@ -18,9 +18,90 @@
       <input class="default-border" id="button" type="submit" value="Submit" style="height: 37px;">
     </form>
     <p class="watchPwd"><input type="checkbox" id="checkbox" name="checkbox">Voir le mot de passe.</p>
-    <div id="error-message"></div>
+    <div id="error-message">Error message</div>
     <script>
       //TODO
+
+      // Séléctionner  le element login
+      const login = document.querySelector('#login');
+       // Séléctionner  le element pwd
+      const password = document.querySelector('#pwd');
+       // Séléctionner  le button
+      const button = document.querySelector('#button');
+      console.log(login.value);
+       // Séléctionner  le element error-message
+      const error = document.querySelector('#error-message');
+      // ne afficher pas error message dans HTML
+      error.style.display= 'none';
+       // Séléctionner le element checkbox
+      const checkbox = document.querySelector('#checkbox');
+      
+  
+// Créer une fonction qui assure la sécurité d'une connexion via ce formulaire
+     function securitylogin(){
+      //  déclarer une variable et stocker le value de login
+      let loginValue = login.value;
+       //  déclarer une variable et stocker le value de password
+      let passwordValue = password.value;
+      // si le length de value de login est inférieure à 15 ou le length de value de password est inférieure à 8
+       if (loginValue.length < 15 || passwordValue.length < 8) {
+        //  afficher le error message
+       error.style.display = 'block';
+      //  En cliquant sur un bouton «envoyer», l'empêchez de soumettre un formulaire
+       event.preventDefault()
+       }
+       else {
+        //  si non, ne afficher pas error message et soumettre un formulaire
+        error.style.display = 'none';
+        };
+     }
+    //  écouteur sur l'évènement click sur le button pour lancer le fonction securityLogin qui assure la sécurité d'une connexion via ce formulaire
+  button.addEventListener('click',securitylogin);
+  
+
+// Créer une fonction pour prend  prend des contours border rouge. Puis passe au vert dès lors que l'on rentre 8 caractères ou plus
+      function pwdFunction(){
+        // déclarer une variable et stocker le value de password
+        let passwordValue = password.value;
+        // si le length de value de password est inférieur à 8
+        if (passwordValue.length < 8) {        
+          // ajouter le class 'bad_password' sur password 
+          password.classList.add ('bad-password');
+          // supprimer le class 'good-password' sur password
+          password.classList.remove ('good-password');
+        }
+        // si non
+        else {
+          // ajouter le class 'good-password' sur password 
+          password.classList.add ('good-password');
+          // supprimer le class 'bad-password' sur password
+          password.classList.remove ('bad-password');
+        }
+        // si le length de value de password égale 0
+      if (passwordValue.length == 0){
+        // supprimer le class 'bad-password' et 'good-password' sur password
+        password.classList.remove ('good-password');
+        password.classList.remove ('bad-password');
+      }   
+      };
+//écouteur sur l'évènement keydown sur l'input pwd à lancer le fonction pwdFunction
+      password.addEventListener('keydown',pwdFunction);
+
+// Créer une fonction que une checkbox permettra de voir le password en toute lettre
+ function voirPwd(){
+  //  si le checkbox est checked 
+   if (checkbox.checked){
+    //  afficher le type de password est text
+    password.type = 'text'
+   }
+  //  si non, le type de password est password
+  else{
+    password.type = 'password'
+  }
+ };
+//  écouteur sur l'évènement click sur checkbox à lancer fonction voirPwd
+  checkbox.addEventListener('click', voirPwd);
+
     </script>
   </body>
 </html>

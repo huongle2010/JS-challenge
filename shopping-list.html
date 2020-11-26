@@ -14,13 +14,44 @@
       </p>
     </div>
     <form action="" id="formulaire" style="text-align: center;">
-      <input type="text" placeholder="ex: poire">
+      <input type="text" placeholder="ex: poire" id='add'>
     <button id="bouton">Envoyer</button>
     <button id="Supprime">Supprimer ma liste</button>
     </form>
-    <div id="maListeDeCourse">Liste : </div>
+    <div id="maListeDeCourse">
+      Liste :
+      
+    </div>
+
+    
     <script>
-      //TODO
+      //on récupère le element formulaire
+      const form = document.getElementById('formulaire');
+      // on récupère le element maListDeCourse
+      const list = document.getElementById('maListeDeCourse');
+      // on récupère le element Supprime
+      const supprime = document.getElementById('Supprime');
+      // on récupère le element bouton
+      const bouton = document.getElementById('bouton');
+      
+      // Créer une fonction 'addList'
+  
+      function addList(event) {
+        // déclarer une variable 'inputValue' à stoker la value de input (la value de formulaire)
+        let inputValue = document.querySelector('input').value;
+        // Ajouter la value de formulaire sur le list sous la formulaire
+        list.insertAdjacentHTML ("beforeend", `<li>${inputValue}</li>`);
+        // En cliquant sur un bouton «envoyer», l'empêchez de soumettre un formulaire
+        event.preventDefault()
+       }
+      // écouteur sur l'évènement click sur bouton 'envoyer' pour lancer fonction 'addList'
+      bouton.addEventListener('click', addList)
+
+      // écouteur sur l'évènement click "supprime" pour effacer fonction 'addList'
+      supprime.removeEventListener('click',addList);
+
+      
+      
     </script>
   </body>
 </html>

@@ -8,9 +8,33 @@
     <h2>Faire apparaitre le mots de votre choix lettre par lettre dans la balise 'h1' (voir code...)
     <br>(voir type-effect.html)
     </h2>
-    <h1></h1>
+    <h1 id='mot'></h1>
   <script>
-    //TODO
+    // déclarer une variable et stocker le mots dans le variable
+     let text = 'Hello everyone!';
+
+      // Variable for current position
+      let i = 0;
+      // créer une fonction: Faire apparaitre le mots de votre choix lettre par lettre
+      function write(){
+          // Récupèrer le element pour écrire
+          const elem = document.getElementById('mot');
+          // Ajouter le caractère suivant au contenu du texte
+            elem.textContent += text.charAt(i);
+            // Mettre à jour la position actuelle
+            i++;
+            //si nous ne sommes pas encore à la fin de la chaîne
+          // nous avons une petite pause 2 seconds avant d'écrire le caractère suivant
+            if (i< text.length){
+              window.setTimeout(write, 200);}
+     };
+// écouter lévènement DOMContentLoaded sur document HTML pour lancer fonction
+// Faire apparaitre le mots de votre choix lettre par lettre après le chargement de la page.
+      document.addEventListener("DOMContentLoaded", write);
+          
+    
+
+
   </script>
   </body>
 </html>
